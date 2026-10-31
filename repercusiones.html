@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mapa de las Repercusiones | RenaSiendo ConSanArte®</title>
+<!-- Mapa de las Repercusiones · ConSanArte® 2026 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{--c:#F9F4F0;--b:#7B1113;--co:#A5622E;--g:#1A1A1B;--w:#fff;--l:#ded2ca}
+*{box-sizing:border-box}
+body, div, input, textarea, select {font-family: 'Poppins', sans-serif !important;}
+body{margin:0;background:var(--c);color:var(--g);font-size:16px;line-height:1.65}
+.top{height:5px;background:var(--b)}
+main{max-width:760px;margin:auto;padding:40px 20px 70px}
+.brand{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--co);margin-bottom:40px;font-weight:600}
+.screen{display:none}.screen.on{display:block;animation:f .25s ease}@keyframes f{from{opacity:0;transform:translateY(5px)}to{opacity:1}}
+h1,h2,h3{font-family:'Poppins',sans-serif !important;color:var(--b);font-weight:600;line-height:1.2}
+h1{font-size:clamp(32px,5vw,48px);margin:0 0 22px}
+h2{font-size:clamp(26px,4vw,36px);margin:0 0 20px}
+h3{font-size:22px}
+.lead{font-size:17px}.note{border-left:3px solid var(--co);padding-left:16px;margin:25px 0}
+label{display:block;font-size:13px;margin-bottom:6px;font-weight:600;color:var(--g)}
+input,textarea{width:100%;padding:14px;border:1px solid var(--l);background:var(--w);font-size:15px;border-radius:4px;color:var(--g)}
+textarea{min-height:110px}.form{display:grid;gap:14px;margin-top:25px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:25px 0}
+
+.choice{border:1px solid var(--l);background:var(--w);padding:15px;text-align:left;font-size:14px;cursor:pointer;border-radius:4px;transition:all .2s ease;color:var(--g);user-select:none}
+.choice.sel{border-color:var(--b);background-color: #F3EAE6;box-shadow:inset 0 0 0 1px var(--b);font-weight:600}
+.nav{display:flex;justify-content:space-between;gap:12px;margin-top:30px}
+.btn-act{display:inline-block;padding:14px 24px;border-radius:4px;background:var(--b);color:white;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;cursor:pointer;transition:all .2s ease;text-align:center;user-select:none}
+.btn-act:hover{background:#5c0b0d}
+.btn-act.back{background:transparent;color:var(--b);border:1px solid var(--l)}
+.btn-act.back:hover{border-color:var(--b)}
+
+.progress{display:none;margin-bottom:30px;font-size:12px;color:#756b67;font-weight:500}
+.track{height:4px;background:#e4dad4;margin-top:7px;border-radius:2px}.track span{display:block;height:100%;width:0;background:var(--b);transition:.3s;border-radius:2px}
+.result{background:white;padding:30px;border-top:4px solid var(--b);margin-top:25px;border-radius:4px}
+.maprow{display:flex;align-items:center;gap:10px;margin:10px 0;font-size:14px}
+.bar{height:8px;background:#e9dfda;flex:1;border-radius:4px;overflow:hidden}.bar i{display:block;height:100%;background:var(--co)}
+.error{display:none;color:var(--b);font-size:13px;margin-top:12px;font-weight:500;padding:10px 14px;background:#FDE8E8;border-radius:4px;border:1px solid #F8B4B4}
+small{color:#756b67}@media(max-width:600px){.grid{grid-template-columns:1fr}.nav{flex-direction:column-reverse}.nav .btn-act{width:100%}}
+.result-wrap{max-width:760px;margin:0 auto}
+.soft-note{font-size:.95em;opacity:.78}
+.result.cta{border-top:2px solid #A5622E}
+.consent-note{margin:10px 0 0;font-size:13px;line-height:1.55;opacity:.78;}
+</style>
+</head>
+<body>
+
+<div class="top"></div>
+<main id="mapa-repercusiones-app">
+<div class="brand">Arturo Ayala · RenaSiendo ConSanArte®</div>
+<div class="progress" id="prog"><span id="pl">Paso 1</span><div class="track"><span id="pb"></span></div></div>
+
+<section class="screen on" id="s0">
+  <h1>¿Qué está pasando realmente en tu vida?</h1>
+  <p class="lead">Una experiencia para mirar aquello que estás viviendo desde una perspectiva más amplia y descubrir sus repercusiones en otras áreas de tu vida.</p>
+  <p>Hay momentos en los que una situación parece ocuparlo todo. Cuando detenemos la mirada y conectamos distintas partes de nuestra experiencia, pueden aparecer relaciones que antes estaban fuera del mapa.</p>
+  <div class="note">Esta experiencia no busca darte una respuesta rápida. Está diseñada para ayudarte a descubrir una pregunta, una conexión o un movimiento que quizá necesitabas mirar.</div>
+  <div class="note" style="margin-top:18px">
+    <strong>Tu información está protegida.</strong><br>
+    Tus respuestas son privadas y se utilizarán para construir tu experiencia y, si corresponde, enviarte tu Mapa de las Repercusiones. No necesitas compartir nada que no quieras compartir.
+  </div>
+  <p><small>Me ha llevado tiempo reunir las preguntas y la estructura de esta experiencia. Regálate entre 8 y 10 minutos para recorrerla con calma.</small></p>
+  <div class="form">
+    <div><label>Tu nombre *</label><input id="name" autocomplete="name" placeholder="Escribe tu nombre"></div>
+    <div><label>Tu correo electrónico *</label><input id="email" type="email" autocomplete="email" placeholder="ejemplo@correo.com">
+    <p class="consent-note">Al completar el mapa recibirás por correo una primera orientación sobre lo que apareció en tu recorrido. Después podrás recibir mis cartas, crónicas e investigaciones sobre Biología, Duelo y Existencia. Puedes cancelar tu suscripción cuando quieras.</p></div>
+  </div>
+  <p class="privacy"><small>Al continuar aceptas que estos datos sean utilizados para personalizar esta experiencia y enviarte tu mapa. Consulta la Política de Privacidad.</small></p>
+  <div class="error" id="err0">Por favor, escribe tu nombre y un correo electrónico válido para comenzar.</div>
+  <div class="nav"><span></span><div class="btn-act" data-btn="start">Comenzar mi mapa</div></div>
+</section>
+
+<section class="screen" id="s1">
+  <h2>¿Qué área de tu vida reclama hoy más tu atención? *</h2>
+  <p class="lead">Solo elige una: aquella donde sientes que está ocurriendo el movimiento principal.</p>
+  <div class="grid" data-single="territory"></div>
+  <div class="error" id="err1">Por favor selecciona una opción para continuar.</div>
+  <div class="nav"><div class="btn-act back" data-btn="prev">Atrás</div><div class="btn-act" data-btn="next">Continuar</div></div>
+</section>
+
+<section class="screen" id="s2">
+  <h2>Si tuvieras que ponerle un nombre a este momento de tu vida, ¿cuál sería? *</h2>
+  <p class="lead">No necesitas encontrar el nombre exacto. Deja que aparezca una palabra, una frase o una imagen.</p>
+  <textarea id="moment" placeholder="Este momento de mi vida se llama..."></textarea>
+  <div class="error" id="err2">Por favor escribe una palabra o frase que describa este momento.</div>
+  <div class="nav"><div class="btn-act back" data-btn="prev">Atrás</div><div class="btn-act" data-btn="next">Continuar</div></div>
+</section>
+
+<section class="screen" id="s3">
+  <h2>¿Cuándo comenzó esta situación a tomar la forma que tiene hoy? *</h2>
+  <div class="grid" data-single="onset"></div>
+  <textarea id="memory" placeholder="¿Recuerdas un momento en el que sentiste que algo había cambiado? (Opcional)"></textarea>
+  <div class="error" id="err3">Por favor selecciona cuándo comenzó esta situación.</div>
+  <div class="nav"><div class="btn-act back" data-btn="prev">Atrás</div><div class="btn-act" data-btn="next">Continuar</div></div>
+</section>
+
+<section class="screen" id="s4">
+  <h2>¿Qué estaba ocurriendo en tu vida alrededor de ese momento? *</h2>
+  <p class="lead">Puedes elegir varias opciones.</p>
+  <div class="grid" data-multi="scene"></div>
+  <textarea id="sceneText" placeholder="¿Qué recuerdas de aquella etapa? (Opcional)"></textarea>
+  <div class="error" id="err4">Por favor selecciona al menos una opción para continuar.</div>
+  <div class="nav"><div class="btn-act back" data-btn="prev">Atrás</div><div class="btn-act" data-btn="next">Continuar</div></div>
+</section>
+
+<section class="screen" id="s5">
+  <h2>¿En qué otros lugares de tu vida reconoces algún movimiento? *</h2>
+  <p class="lead">Elige todos los que correspondan.</p>
+  <div class="grid" data-multi="related"></div>
+  <div class="error" id="err5">Por favor selecciona al menos una opción para continuar.</div>
+  <div class="nav"><div class="btn-act back" data-btn="prev">Atrás</div><div class="btn-act" data-btn="next">Continuar</div></div>
+</section>
+
+<section class="screen" id="s6">
+  <h2>Has señalado varios lugares de tu vida.</h2>
+  <p class="lead">¿Los habías relacionado antes? *</p>
+  <div class="grid" data-single="connection"></div>
+  <textarea id="common" placeholder="¿Qué tienen en común, si encuentras algo? (Opcional)"></textarea>
+  <div class="error" id="err6">Por favor responde si los habías relacionado antes.</div>
+  <div class="nav"><div class="btn-act back" data-btn="prev">Atrás</div><div class="btn-act" data-btn="next">Continuar</div></div>
+</section>
+
+<section class="screen" id="s7">
+  <h2>¿Hay algo que parece repetirse, aunque cambien las circunstancias o las personas? *</h2>
+  <div class="grid" data-multi="patterns"></div>
+  <div class="error" id="err7">Por favor selecciona al menos una opción para continuar.</div>
+  <div class="nav"><div class="btn-act back" data-btn="prev">Atrás</div><div class="btn-act" data-btn="next">Continuar</div></div>
+</section>
+
+<section class="screen" id="s8">
+  <h2>¿Hay algo que todavía sientes pendiente? *</h2>
+  <p class="lead">Algo que necesites hacer, decir, decidir, cerrar o reconocer.</p>
+  <div class="grid" data-multi="pending"></div>
+  <textarea id="pendingText" placeholder="Si quieres, cuéntame qué permanece pendiente. (Opcional)"></textarea>
+  <div class="error" id="err8">Por favor selecciona al menos una opción para continuar.</div>
+  <div class="nav"><div class="btn-act back" data-btn="prev">Atrás</div><div class="btn-act" data-btn="next">Continuar</div></div>
+</section>
+
+<section class="screen" id="s9">
+  <h2>¿Qué lugar ocupa tu cuerpo dentro de esta historia? *</h2>
+  <p class="lead">Míralo como parte de la experiencia completa que estás viviendo.</p>
+  <div class="grid" data-single="body"></div>
+  <label style="display:block;margin-top:20px">Si hay alguna manifestación física o sintomatología que hoy tenga un lugar importante, ¿cuál es?</label>
+  <textarea id="symptom" placeholder="Puedes escribirla con tus propias palabras. (Opcional)"></textarea>
+  <small>No necesitas describirla con términos técnicos. Puedes escribirla con tus propias palabras.</small>
+  <label style="display:block;margin-top:20px">Si tu cuerpo pudiera participar en esta conversación, ¿qué tendría para decirte?</label>
+  <textarea id="bodyText" placeholder="Puedes escribir una frase, una sensación o aquello que te venga. (Opcional)"></textarea>
+  <div class="error" id="err9">Por favor selecciona la opción que mejor describa la relación con tu cuerpo.</div>
+  <div class="nav"><div class="btn-act back" data-btn="prev">Atrás</div><div class="btn-act" data-btn="next">Continuar</div></div>
+</section>
+
+<section class="screen" id="s10">
+  <h2>Si pudieras comprender una sola cosa de todo lo que estás viviendo, ¿qué necesitarías comprender? *</h2>
+  <textarea id="understand" placeholder="Necesito comprender..."></textarea>
+  <div class="error" id="err10">Por favor completa este campo para continuar.</div>
+  <div class="nav"><div class="btn-act back" data-btn="prev">Atrás</div><div class="btn-act" data-btn="next">Continuar</div></div>
+</section>
+
+<section class="screen" id="s11">
+  <h2>Imagina que durante los próximos meses algo comienza a ordenarse.</h2>
+  <p class="lead">¿Qué tendría que cambiar para que pudieras decir: “Estoy viviendo de otra manera”? *</p>
+  <textarea id="change" placeholder="Tendría que cambiar..."></textarea>
+  <p class="lead" style="margin-top:20px">¿Cuál sería el primer movimiento que sabes que necesitas hacer? *</p>
+  <textarea id="move" placeholder="El primer movimiento sería..."></textarea>
+  <div class="error" id="err11">Por favor completa ambas respuestas para finalizar tu mapa.</div>
+  <div class="nav"><div class="btn-act back" data-btn="prev">Atrás</div><div class="btn-act" data-btn="finish">Ver mi mapa</div></div>
+</section>
+
+<section class="screen" id="res">
+<div class="result-wrap">
+<h1>Tu Mapa de las Repercusiones</h1>
+<p class="lead" id="intro"></p>
+
+<div class="result">
+<h3>Lo que señalaste</h3>
+<p id="txt"></p>
+<div id="map"></div>
+</div>
+
+<div class="note" id="ref">
+<h3>Lo que comienza a verse</h3>
+<div id="seen"></div>
+</div>
+
+<div class="result">
+<h3>Una pregunta para continuar</h3>
+<p id="question" style="font-size:18px;font-weight:500;color:var(--b)"></p>
+<p class="soft-note">No necesitas responderla ahora. Puedes simplemente llevarla contigo.</p>
+</div>
+
+<div class="result">
+<h3>Antes de terminar, quiero acompañarte unos minutos.</h3>
+<p>He preparado una pausa sonora para detenerte, respirar y escuchar aquello que acabas de reconocer.</p>
+<div class="btn-act" onclick="window.open('https://www.arturoayala.art/pausa-sonora/', '_blank', 'noopener')">ESCUCHAR LA PAUSA</div>
+</div>
+
+<div class="result cta">
+<h3>¿Quieres profundizar en lo que acabas de descubrir?</h3>
+<p>La Sesión de Origen es una conversación individual de aproximadamente 120 minutos para detenernos, mirar lo que estás viviendo y comprender la relación entre tu momento actual, tu historia y aquello que tu cuerpo está expresando.</p>
+<p>Si después de esta conversación sentimos que tiene sentido continuar, podremos hablar de RenaSiendo ConSanArte®.</p>
+<div class="btn-act" onclick="window.open('https://www.arturoayala.art/sesion-de-origen/', '_blank', 'noopener')">QUIERO PROFUNDIZAR</div>
+</div>
+</div>
+</section>
+</main>
+
+<script>
+(function() {
+  const T=['Cuerpo','Relaciones','Economía','Dirección','Familia','Soledad y pertenencia','Actividad y creatividad','Vida interior'];
+  const O={
+    territory:T,
+    onset:['Hace pocos días o semanas','Hace algunos meses','Hace uno o varios años','Viene de mucho tiempo atrás','No puedo ubicarlo'],
+    connection:['Sí, ya los relacionaba','Algunos','No, nunca los había relacionado'],
+    body:['Siento que está expresando algo','Hay una manifestación física importante','Hay fatiga o falta de energía','Siento que mi cuerpo me está deteniendo','He dejado de escucharlo','Percibo una relación entre cuerpo y momento vital','Todavía no lo sé','El cuerpo no es el centro']
+  };
+  O.scene=['Una relación estaba cambiando','Una pérdida o separación','Una nueva etapa','Una decisión importante','Una dificultad económica','Un cambio familiar','Soledad o aislamiento','Estaba sosteniendo algo que no quería','Un deseo que venía postergando','Una situación difícil de nombrar'];
+  O.related=[...T,'Todavía no sé si están relacionadas'];
+  O.patterns=['Me cuesta poner límites','Cuido a los demás antes que a mí','Postergación de decisiones','Me cuesta quedarme','Me cuesta irme','El dinero vuelve a ocupar el mismo lugar','Siempre termino haciéndome cargo de todo','Me cuesta recibir o pedir ayuda','Cambian las circunstancias, pero vuelvo al mismo lugar','Hay algo que se repite, pero todavía no puedo nombrarlo','No reconozco una repetición'];
+  O.pending=['Una conversación','Una decisión','Una despedida','Un límite','Un proyecto','Una elección','Algo que necesito decir','Algo que necesito hacer','Algo que sigo esperando','Algo que todavía no comprendo','No siento nada pendiente'];
+
+  let step = 0, data = {}; const N = 11;
+  // URL DE IMPLEMENTACIÓN UNIFICADA DE GOOGLE APPS SCRIPT (/exec)
+  const scriptURL = "https://script.google.com/macros/s/AKfycbzdy0IW89dle5hD0F-p7y2bJDxPolgL9jkHd5-Teq80tb-N_SPcTCfbvkos00YKqLMJ/exec";
+
+  function renderGridButtons() {
+    document.querySelectorAll('#mapa-repercusiones-app .grid').forEach(g => {
+      let k = g.dataset.single || g.dataset.multi;
+      (O[k] || []).forEach(v => {
+        let b = document.createElement('div');
+        b.className = 'choice';
+        b.textContent = v;
+        b.dataset.v = v;
+        g.appendChild(b);
+      });
+    });
+  }
+
+  function hideError() {
+    let e = document.getElementById('err' + step);
+    if (e) e.style.display = 'none';
+  }
+
+  function save() {
+    let s = document.getElementById('s' + step);
+    if (!s) return;
+    s.querySelectorAll('[data-single]').forEach(g => {
+      let x = g.querySelector('.sel');
+      data[g.dataset.single] = x ? x.dataset.v : '';
+    });
+    s.querySelectorAll('[data-multi]').forEach(g => {
+      data[g.dataset.multi] = [...g.querySelectorAll('.sel')].map(x => x.dataset.v);
+    });
+    ['moment','memory','sceneText','common','pendingText','symptom','bodyText','understand','change','move'].forEach(id => {
+      let e = document.getElementById(id);
+      if (e) data[id] = e.value;
+    });
+  }
+
+  function validateStep(s) {
+    if (s === 1) return !!data.territory;
+    if (s === 2) return !!(data.moment && data.moment.trim());
+    if (s === 3) return !!data.onset;
+    if (s === 4) return Array.isArray(data.scene) && data.scene.length > 0;
+    if (s === 5) return Array.isArray(data.related) && data.related.length > 0;
+    if (s === 6) return !!data.connection;
+    if (s === 7) return Array.isArray(data.patterns) && data.patterns.length > 0;
+    if (s === 8) return Array.isArray(data.pending) && data.pending.length > 0;
+    if (s === 9) return !!data.body;
+    if (s === 10) return !!(data.understand && data.understand.trim());
+    if (s === 11) return !!(data.change && data.change.trim() && data.move && data.move.trim());
+    return true;
+  }
+
+  function render() {
+    document.querySelectorAll('#mapa-repercusiones-app .screen').forEach(x => x.classList.remove('on'));
+    document.getElementById('s' + step).classList.add('on');
+    document.getElementById('pl').textContent = 'Paso ' + step + ' de ' + N;
+    document.getElementById('pb').style.width = ((step - 1) / N * 100) + '%';
+    window.scrollTo(0, 0);
+  }
+
+  document.addEventListener('click', function(e) {
+    let btnChoice = e.target.closest('#mapa-repercusiones-app .choice');
+    if (btnChoice) {
+      hideError();
+      let parentGrid = btnChoice.closest('.grid');
+      if (parentGrid.dataset.single) {
+        parentGrid.querySelectorAll('.choice').forEach(x => x.classList.remove('sel'));
+      }
+      btnChoice.classList.toggle('sel');
+      return;
+    }
+
+    let actionBtn = e.target.closest('#mapa-repercusiones-app [data-btn]');
+    if (!actionBtn) return;
+
+    let act = actionBtn.dataset.btn;
+
+    if (act === 'start') {
+      let n = document.getElementById('name').value.trim();
+      let emailVal = document.getElementById('email').value.trim();
+      if (!n || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+        document.getElementById('err0').style.display = 'block';
+        return;
+      }
+      document.getElementById('err0').style.display = 'none';
+      data.name = n; data.email = emailVal;
+      document.getElementById('prog').style.display = 'block';
+      step = 1; render();
+    }
+
+    if (act === 'next') {
+      save();
+      if (!validateStep(step)) {
+        let err = document.getElementById('err' + step);
+        if (err) err.style.display = 'block';
+        return;
+      }
+      hideError();
+      step < N ? (step++, render()) : showMap();
+    }
+
+    if (act === 'prev') {
+      save();
+      hideError();
+      if (step > 1) { step--; render(); }
+    }
+
+    if (act === 'finish') {
+      save();
+      if (!validateStep(step)) {
+        let err = document.getElementById('err' + step);
+        if (err) err.style.display = 'block';
+        return;
+      }
+      showMap();
+    }
+  });
+
+  document.addEventListener('input', function(e) {
+    if (e.target.matches('#mapa-repercusiones-app textarea, #mapa-repercusiones-app input')) hideError();
+  });
+
+  function enviarMapaRepercusiones() {
+    const payload = {
+      tipo: "mapa_repercusiones",
+      nombre: data.name || "",
+      email: data.email || "",
+      territorioPrincipal: data.territory || "",
+      nombreMomento: data.moment || "",
+      cuandoComenzo: data.onset || "",
+      momentoRecordado: data.memory || "",
+      queEstabaOcurriendo: Array.isArray(data.scene) ? data.scene.join(", ") : "",
+      contextoAdicional: data.sceneText || "",
+      otrosTerritorios: Array.isArray(data.related) ? data.related.join(", ") : "",
+      relacionTerritorios: data.connection || "",
+      queTienenEnComun: data.common || "",
+      repeticiones: Array.isArray(data.patterns) ? data.patterns.join(", ") : "",
+      pendientes: Array.isArray(data.pending) ? data.pending.join(", ") : "",
+      detallePendiente: data.pendingText || "",
+      lugarCuerpo: data.body || "",
+      manifestacionFisica: data.symptom || "",
+      queDiriaElCuerpo: data.bodyText || "",
+      queNecesitaComprender: data.understand || "",
+      cambioDeseado: data.change || "",
+      primerMovimiento: data.move || ""
+    };
+
+    fetch(scriptURL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload)
+    }).catch(function(error) {
+      console.log("Envío completado hacia el webhook.");
+    });
+  }
+
+  function showMap() {
+    enviarMapaRepercusiones();
+
+    var main = data.territory || "Tu experiencia";
+    var related = (data.related || []).filter(x => x !== "Todavía no sé si están relacionadas" && x !== main);
+    var patterns = (data.patterns || []).filter(x => x !== "No reconozco una repetición");
+    var pending = (data.pending || []).filter(x => x !== "No siento nada pendiente");
+
+    document.querySelectorAll("#mapa-repercusiones-app .screen").forEach(x => x.classList.remove("on"));
+    document.getElementById("res").classList.add("on");
+    document.getElementById("prog").style.display = "none";
+
+    document.getElementById("intro").textContent =
+      "Este mapa reúne aquello que apareció durante tu recorrido. No pretende explicarte lo que vives. Te devuelve lo que tú señalaste para que puedas mirarlo junto.";
+
+    document.getElementById("txt").textContent =
+      "El movimiento principal aparece en " + main.toLowerCase() +
+      ". Al ampliar la mirada, también señalaste otros lugares de tu vida que hoy tienen algún movimiento.";
+
+    var map = document.getElementById("map");
+    map.innerHTML = "";
+    [main].concat(related).slice(0, 6).forEach((t, i) => {
+      var row = document.createElement("div");
+      row.className = "maprow";
+      row.innerHTML = "<span style='width:180px'>" + escapeHtml(t) + "</span><div class='bar'><i style='width:" + (100 - i * 13) + "%'></i></div>";
+      map.appendChild(row);
+    });
+
+    var seen = "";
+    if (related.length) {
+      seen += "Hoy el movimiento principal aparece en <strong>" + escapeHtml(main.toLowerCase()) +
+        "</strong>, y alrededor de él también reconoces movimiento en <strong>" +
+        related.slice(0, 4).map(x => escapeHtml(x.toLowerCase())).join(", ") + "</strong>.";
+    } else {
+      seen += "Hoy el movimiento principal aparece en <strong>" + escapeHtml(main.toLowerCase()) +
+        "</strong>. Por ahora, ese es el territorio que más claramente reclama tu atención.";
+    }
+    if (patterns.length) {
+      seen += "<br><br>También aparece algo que reconoces como repetición: <strong>" +
+        escapeHtml(patterns.slice(0, 2).join(" y ").toLowerCase()) + "</strong>.";
+    }
+    if (pending.length) {
+      seen += "<br><br>Y hay algo que permanece pendiente: <strong>" +
+        escapeHtml(pending.slice(0, 2).join(" y ").toLowerCase()) + "</strong>.";
+    }
+    if (data.symptom && data.symptom.trim()) {
+      seen += "<br><br>Has señalado esta manifestación física: <strong>" +
+        escapeHtml(data.symptom.trim()) + "</strong>. La dejamos dentro del mapa como parte de tu experiencia, sin convertirla por sí sola en una explicación.";
+    }
+    seen += "<br><br>Al poner estos elementos juntos, quizá puedas observar relaciones que antes aparecían separadas.";
+    document.getElementById("seen").innerHTML = seen;
+
+    var q = "¿Qué relación podría existir entre aquello que hoy reclama tu atención y aquello que vienes postergando, sosteniendo o dejando pendiente?";
+    if (pending.length && patterns.length) {
+      q = "¿Qué relación podría existir entre aquello que reconoces como repetición y eso que todavía permanece pendiente?";
+    } else if (pending.length) {
+      q = "¿Qué cambiaría en tu experiencia si te permitieras mirar de frente aquello que permanece pendiente?";
+    } else if (patterns.length) {
+      q = "¿Qué podrías empezar a observar en esa repetición si dejaras de verla como algo aislado?";
+    } else if (related.length) {
+      q = "¿Qué relación podría existir entre el lugar donde hoy sientes mayor movimiento y los otros territorios que también señalaste?";
+    }
+    document.getElementById("question").textContent = q;
+    window.scrollTo(0, 0);
+  }
+
+  function escapeHtml(value) {
+    return String(value).replace(/[&<>"']/g, function(ch) {
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch];
+    });
+  }
+
+  renderGridButtons();
+})();
+</script>
+</body>
+</html>
