@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confirmación · Sesión de Origen | Arturo Ayala</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+  color: #171717;
+  font-size: 16px;
+  line-height: 1.75;
+  background-color: #FAF8F5;
+}
+h1, h2, h3 { font-family: 'Poppins', sans-serif; font-weight: 600; margin: 0; }
+p { margin: 0; }
+
+.aa-gracias-sec { width: 100%; display: block; box-sizing: border-box; }
+.aa-gracias-inner { width: 100%; max-width: 860px; margin: 0 auto; box-sizing: border-box; }
+
+/* 01 · CONFIRMACIÓN (NEGRO) */
+.aa-gracias-hero {
+  background-color: #000000;
+  color: #F5F0E6;
+  padding: 85px 24px 95px;
+  text-align: center;
+}
+.aa-gracias-kicker {
+  margin-bottom: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .2em;
+  color: #C77755;
+  text-transform: uppercase;
+}
+.aa-gracias-hero h1 {
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.25;
+  color: #F5F0E6;
+}
+.aa-gracias-hero h1 em { font-style: normal; color: #C77755; }
+.aa-gracias-hero-line {
+  width: 60px;
+  height: 2px;
+  margin: 26px auto;
+  background-color: #C77755;
+}
+.aa-gracias-hero strong {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #F5F0E6;
+}
+.aa-gracias-hero-sub {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #F5F0E6;
+  opacity: .88;
+}
+
+/* 02 · MAPA DE CLARIDAD (MARFIL) */
+.aa-gracias-mapa {
+  background-color: #F5F0E6;
+  padding: 85px 24px 95px;
+  text-align: center;
+}
+.aa-gracias-section-kicker {
+  margin-bottom: 18px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .18em;
+  color: #12301C;
+  text-transform: uppercase;
+}
+.aa-gracias-mapa h2 {
+  font-size: clamp(26px, 3.5vw, 40px);
+  line-height: 1.25;
+  color: #000000;
+}
+.aa-gracias-mapa h2 em { font-style: normal; color: #12301C; }
+.aa-gracias-mapa-intro {
+  max-width: 760px;
+  margin: 26px auto 0 !important;
+  font-size: 17px;
+  line-height: 1.85;
+  color: #171717;
+}
+.aa-gracias-mapa-note {
+  max-width: 720px;
+  margin: 20px auto 0 !important;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #33302C;
+}
+.aa-gracias-mapa-note strong { color: #12301C; font-weight: 600; }
+
+.aa-gracias-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 34px;
+  padding: 16px 32px;
+  background-color: transparent;
+  border: 2px solid #C77755;
+  border-radius: 6px;
+  color: #171717;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  line-height: 1.4;
+  text-decoration: none !important;
+  transition: all .25s ease;
+}
+.aa-gracias-button span { color: #C77755; font-size: 16px; }
+.aa-gracias-button:hover {
+  background-color: #C77755;
+  color: #FFFFFF !important;
+  border-color: #C77755;
+}
+.aa-gracias-button:hover span { color: #FFFFFF; }
+
+/* 03 · QUÉ OCURRE DESPUÉS (BLANCO) */
+.aa-gracias-despues {
+  background-color: #FFFFFF;
+  padding: 85px 24px 90px;
+}
+.aa-gracias-despues-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.aa-gracias-despues h2 {
+  font-size: clamp(26px, 3.5vw, 40px);
+  line-height: 1.25;
+  color: #000000;
+}
+.aa-gracias-despues h2 em { font-style: normal; color: #12301C; }
+.aa-gracias-steps { border-top: 1px solid rgba(18, 48, 28, .2); }
+.aa-gracias-step {
+  display: grid;
+  grid-template-columns: 55px 1fr;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(18, 48, 28, .12);
+  align-items: center;
+}
+.aa-gracias-step-number { font-size: 26px; color: #C77755; font-weight: 700; }
+.aa-gracias-step-text { font-size: 16px; line-height: 1.75; color: #171717; }
+.aa-gracias-step-text strong { color: #12301C; font-weight: 600; }
+.aa-gracias-despues-note {
+  margin-top: 28px !important;
+  font-size: 15px;
+  line-height: 1.8;
+  font-style: italic;
+  color: #555555;
+  text-align: center;
+}
+
+/* 04 · PREPARACIÓN (VERDE #12301C) */
+.aa-gracias-recordatorio {
+  background-color: #12301C;
+  color: #F5F0E6;
+  padding: 85px 24px 95px;
+  text-align: center;
+}
+.aa-gracias-recordatorio .aa-gracias-section-kicker { color: #C77755; }
+.aa-gracias-recordatorio h2 {
+  font-size: clamp(26px, 3.5vw, 40px);
+  line-height: 1.25;
+  color: #F5F0E6;
+}
+.aa-gracias-recordatorio h2 em { font-style: normal; color: #C77755; }
+.aa-gracias-recordatorio p {
+  margin-top: 22px;
+  font-size: 16px;
+  line-height: 1.85;
+  color: #F5F0E6;
+  opacity: .9;
+}
+
+/* 05 · CORREO (MARFIL) */
+.aa-gracias-correo {
+  background-color: #F5F0E6;
+  padding: 80px 24px 88px;
+  text-align: center;
+}
+.aa-gracias-correo .aa-gracias-section-kicker { color: #12301C; }
+.aa-gracias-correo h2 {
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.25;
+  color: #000000;
+}
+.aa-gracias-correo h2 em { font-style: normal; color: #12301C; }
+.aa-gracias-correo p {
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 1.85;
+  color: #33302C;
+}
+.aa-gracias-correo strong { color: #12301C; font-weight: 600; }
+
+/* 06 · CIERRE (NEGRO) */
+.aa-gracias-cierre {
+  background-color: #000000;
+  color: #F5F0E6;
+  padding: 70px 24px 80px;
+  text-align: center;
+}
+.aa-gracias-cierre p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #F5F0E6;
+  opacity: .75;
+}
+.aa-gracias-cierre .aa-gracias-signature {
+  margin-top: 14px !important;
+  font-size: 20px;
+  font-weight: 600;
+  color: #C77755;
+}
+
+@media (max-width: 650px) {
+  .aa-gracias-hero, .aa-gracias-mapa, .aa-gracias-despues,
+  .aa-gracias-recordatorio, .aa-gracias-correo, .aa-gracias-cierre {
+    padding-top: 60px;
+    padding-bottom: 65px;
+  }
+  .aa-gracias-step { grid-template-columns: 36px 1fr; gap: 12px; }
+  .aa-gracias-step-number { font-size: 20px; }
+  .aa-gracias-button { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+  <!-- 01 · CONFIRMACIÓN -->
+  <div class="aa-gracias-sec aa-gracias-hero">
+    <div class="aa-gracias-inner">
+      <div class="aa-gracias-kicker">SESIÓN DE ORIGEN · CONFIRMACIÓN</div>
+      <h1>
+        Tu pago ha sido<br>
+        <em>recibido correctamente.</em>
+      </h1>
+      <div class="aa-gracias-hero-line"></div>
+      <strong>Tu lugar en el proceso ha quedado confirmado.</strong>
+      <p class="aa-gracias-hero-sub">
+        Ahora comienza el primer paso para preparar nuestro encuentro.
+      </p>
+    </div>
+  </div>
+
+  <!-- 02 · MAPA DE CLARIDAD -->
+  <div class="aa-gracias-sec aa-gracias-mapa">
+    <div class="aa-gracias-inner">
+      <div class="aa-gracias-section-kicker">PRIMER PASO · MAPA DE CLARIDAD</div>
+      <h2>
+        Antes de agendar tu sesión,<br>
+        <em>miremos primero dónde estás.</em>
+      </h2>
+      <p class="aa-gracias-mapa-intro">
+        Completa tu Mapa de Claridad Biológica y Vital antes de elegir el día y la hora de nuestro encuentro.
+      </p>
+      <p class="aa-gracias-mapa-note">
+        Este mapa me permite conocer con anticipación aquello que estás viviendo, tu historia y los elementos que considero importantes para preparar nuestra conversación.
+      </p>
+      <p class="aa-gracias-mapa-note">
+        Tómate unos minutos y responde con libertad. No necesitas buscar respuestas perfectas. Lo importante es que pueda conocer tu experiencia tal como la estás viviendo.
+      </p>
+      <a href="https://www.arturoayala.art/tu-mapa-de-claridad" target="_top" class="aa-gracias-button">
+        COMPLETAR MI MAPA DE CLARIDAD <span>↗</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 03 · QUÉ OCURRE DESPUÉS -->
+  <div class="aa-gracias-sec aa-gracias-despues">
+    <div class="aa-gracias-inner">
+      <div class="aa-gracias-despues-header">
+        <div class="aa-gracias-section-kicker">DESPUÉS DEL MAPA</div>
+        <h2>
+          ¿Qué ocurre <em>después?</em>
+        </h2>
+      </div>
+
+      <div class="aa-gracias-steps">
+        <div class="aa-gracias-step">
+          <div class="aa-gracias-step-number">01</div>
+          <div class="aa-gracias-step-text">
+            <strong>Completa tu Mapa de Claridad.</strong> Compartes conmigo la información necesaria para preparar nuestro encuentro.
+          </div>
+        </div>
+
+        <div class="aa-gracias-step">
+          <div class="aa-gracias-step-number">02</div>
+          <div class="aa-gracias-step-text">
+            <strong>Agenda tu sesión.</strong> Al enviar el mapa serás dirigido automáticamente a Google Calendar para elegir el día y la hora de nuestra sesión.
+          </div>
+        </div>
+
+        <div class="aa-gracias-step">
+          <div class="aa-gracias-step-number">03</div>
+          <div class="aa-gracias-step-text">
+            <strong>Recibe las instrucciones.</strong> Después de agendar recibirás en tu correo la confirmación y las indicaciones necesarias para nuestro encuentro.
+          </div>
+        </div>
+      </div>
+
+      <p class="aa-gracias-despues-note">
+        Si completas el mapa pero no alcanzas a agendar tu sesión, recibirás un correo con el enlace para hacerlo posteriormente.
+      </p>
+    </div>
+  </div>
+
+  <!-- 04 · PREPARACIÓN -->
+  <div class="aa-gracias-sec aa-gracias-recordatorio">
+    <div class="aa-gracias-inner">
+      <div class="aa-gracias-section-kicker">UNA PEQUEÑA PREPARACIÓN</div>
+      <h2>
+        Llega a nuestro encuentro<br>
+        <em>con tiempo para ti.</em>
+      </h2>
+      <p>
+        Una conversación profunda necesita un espacio donde puedas estar presente. Si es posible, busca un lugar tranquilo, sin interrupciones, donde puedas disponer de los 120 minutos de la sesión.
+      </p>
+      <p>
+        Ten cerca algo para escribir y aquello que necesites para sentirte cómodo durante nuestro encuentro.
+      </p>
+    </div>
+  </div>
+
+  <!-- 05 · CORREO -->
+  <div class="aa-gracias-sec aa-gracias-correo">
+    <div class="aa-gracias-inner">
+      <div class="aa-gracias-section-kicker">MANTENTE ATENTO A TU CORREO</div>
+      <h2>
+        La información de nuestra sesión<br>
+        <em>llegará allí.</em>
+      </h2>
+      <p>
+        Recibirás los mensajes necesarios para continuar con el proceso y preparar nuestro encuentro.
+      </p>
+      <p>
+        Si no ves mi correo en los próximos minutos, revisa también tus carpetas de <strong>SPAM, No deseados o Promociones</strong>.
+      </p>
+      <p>
+        Si encuentras allí el mensaje, márcalo como correo deseado para no perder las siguientes comunicaciones.
+      </p>
+    </div>
+  </div>
+
+  <!-- 06 · CIERRE -->
+  <div class="aa-gracias-sec aa-gracias-cierre">
+    <div class="aa-gracias-inner">
+      <p>El primer paso ya está dado.</p>
+      <p class="aa-gracias-signature">Arturo Ayala</p>
+    </div>
+  </div>
+
+</body>
+</html>
