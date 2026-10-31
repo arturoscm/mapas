@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mapa de tu Vida Profesional | Arturo Ayala</title>
+<!-- Mapa de tu Vida Profesional · SendPulse 100% Validado -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{--c:#FAF8F5;--b:#12301C;--co:#C77755;--g:#1A1A1B;--w:#fff;--l:#ded2ca}
+*{box-sizing:border-box}
+body, div, input, textarea, select {font-family: 'Poppins', sans-serif !important;}
+body{margin:0;background:var(--c);color:var(--g);font-size:16px;line-height:1.65}
+.top{height:5px;background:var(--b)}
+main{max-width:760px;margin:auto;padding:40px 20px 70px}
+.brand{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--co);margin-bottom:40px;font-weight:600}
+.screen{display:none}.screen.on{display:block;animation:f .25s ease}@keyframes f{from{opacity:0;transform:translateY(5px)}to{opacity:1}}
+h1,h2,h3{font-family:'Poppins',sans-serif !important;color:var(--b);font-weight:600;line-height:1.2}
+h1{font-size:clamp(32px,5vw,48px);margin:0 0 22px}
+h2{font-size:clamp(26px,4vw,36px);margin:0 0 20px}
+h3{font-size:22px}
+.lead{font-size:17px}.note{border-left:3px solid var(--co);padding-left:16px;margin:25px 0}
+label{display:block;font-size:13px;margin-bottom:6px;font-weight:600;color:var(--g)}
+input,textarea{width:100%;padding:14px;border:1px solid var(--l);background:var(--w);color:var(--g);font-size:15px;border-radius:4px}
+textarea{min-height:120px;resize:vertical}
+.form{display:grid;gap:14px;margin-top:25px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:25px 0}
+
+/* Botones convertidos a DIV para anular envíos de SendPulse */
+.choice{border:1px solid var(--l);background:var(--w);padding:15px;text-align:left;font-size:14px;color:var(--g);cursor:pointer;border-radius:4px;transition:all .2s ease;user-select:none}
+.choice.sel{border-color:var(--b);background-color: #E8ECE8;box-shadow:inset 0 0 0 1px var(--b);font-weight:600}
+.nav{display:flex;justify-content:space-between;gap:12px;margin-top:30px}
+.btn-act{display:inline-block;padding:14px 24px;border-radius:4px;background:var(--b);color:white;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;cursor:pointer;transition:all .2s ease;text-align:center;user-select:none}
+.btn-act:hover{background:#1e4a2d}
+.btn-act.back{background:transparent;color:var(--b);border:1px solid var(--l)}
+.btn-act.back:hover{border-color:var(--b)}
+
+.progress{display:none;margin-bottom:30px;font-size:12px;color:#756b67;font-weight:500}
+.track{height:4px;background:#e4dad4;margin-top:7px;border-radius:2px}.track span{display:block;height:100%;width:0;background:var(--b);transition:.3s;border-radius:2px}
+.error{display:none;color:var(--b);font-size:13px;margin-top:12px;font-weight:500;padding:10px 14px;background:#FDE8E8;border-radius:4px;border:1px solid #F8B4B4}
+small{color:#756b67}.result{background:white;padding:30px;border-top:4px solid var(--b);margin-top:25px;border-radius:4px}
+.result.cta{border-top:2px solid var(--co)}
+.maprow{display:flex;align-items:center;gap:10px;margin:10px 0;font-size:14px}.bar{height:8px;background:#e9dfda;flex:1;border-radius:4px;overflow:hidden}.bar i{display:block;height:100%;background:var(--co)}
+.soft-note{font-size:.95em;opacity:.78}.consent-note{margin:10px 0 0;font-size:13px;line-height:1.55;opacity:.78}
+.result-question{font-size:18px;font-weight:500;color:var(--b)}.result-move{border-left:3px solid var(--co);padding-left:16px}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.nav{flex-direction:column-reverse}.nav .btn-act{width:100%}}
+</style>
+
+<div class="top"></div>
+<main id="mapa-profesional-app">
+<div class="brand">Arturo Ayala · Temprendo</div>
+
+<div class="progress" id="prog">
+  <span id="pl">Paso 1</span>
+  <div class="track"><span id="pb"></span></div>
+</div>
+
+<section class="screen on" id="s0">
+  <h1>¿Qué está pasando realmente con tu vida profesional?</h1>
+  <p class="lead">El Mapa de tu Vida Profesional</p>
+  <p>Una experiencia para detenerte unos minutos, mirar lo que estás construyendo y reconocer dónde está tomando movimiento tu vida profesional.</p>
+  <div class="note">No necesitas tener todo claro. Solo necesitas responder desde el lugar en el que estás hoy.</div>
+
+  <div class="form">
+    <div><label>Tu nombre *</label><input id="name" autocomplete="name" placeholder="Escribe tu nombre"></div>
+    <div>
+      <label>Tu correo electrónico *</label>
+      <input id="email" type="email" autocomplete="email" placeholder="ejemplo@correo.com">
+      <p class="consent-note">Al completar el mapa recibirás por correo una primera orientación sobre lo que apareció en tu recorrido. Después podrás recibir mis cartas, crónicas e investigaciones sobre vida profesional, trabajo, negocio, tecnología y existencia. Puedes cancelar tu suscripción cuando quieras.</p>
+    </div>
+  </div>
+  <p><small>Regálate unos minutos para recorrerlo con calma.</small></p>
+  <p class="privacy"><small>Al continuar aceptas que estos datos sean utilizados para personalizar esta experiencia y enviarte tu mapa. Consulta la Política de Privacidad.</small></p>
+  <div class="error" id="err0">Por favor, escribe tu nombre y un correo electrónico válido para comenzar.</div>
+  <div class="nav"><span></span><div class="btn-act" data-btn="start">Comenzar mi mapa</div></div>
+</section>
+
+<section class="screen" id="s1">
+  <h2>¿Dónde estás hoy en tu vida profesional? *</h2>
+  <p class="lead">Selecciona la opción que más se acerca a tu situación.</p>
+  <div class="grid" data-single="moment"></div>
+  <div class="error" id="err1">Por favor selecciona la opción que mejor describa tu momento actual.</div>
+  <div class="nav"><div class="btn-act back" data-btn="prev">Atrás</div><div class="btn-act" data-btn="next">Continuar</div></div>
+</section>
+
+<section class="screen" id="s2">
+  <h2>¿Qué está ocupando más espacio en este momento? *</h2>
+  <p class="lead">Solo elige una: aquello donde sientes que está ocurriendo el movimiento principal.</p>
+  <div class="grid" data-single="movement"></div>
+  <p><small>Puedes saber muchas cosas y aun así no tener claro cuál merece tu atención ahora.</small></p>
+  <div class="error" id="err2">Por favor selecciona un área principal para continuar.</div>
+  <div class="nav"><div class="btn-act back" data-btn="prev">Atrás</div><div class="btn-act" data-btn="next">Continuar</div></div>
+</section>
+
+<section class="screen" id="s3">
+  <h2>¿Qué sabes hacer que hoy no está teniendo suficiente espacio en tu vida profesional? *</h2>
+  <textarea id="capabilities" placeholder="Escríbelo como te salga."></textarea>
+  <div class="error" id="err3">Por favor completa este campo para continuar.</div>
+  <div class="nav"><div class="btn-act back" data-btn="prev">Atrás</div><div class="btn-act" data-btn="next">Continuar</div></div>
+</section>
+
+<section class="screen" id="s4">
+  <h2>¿Cuántas cosas diferentes estás intentando sostener actualmente? *</h2>
+  <div class="grid" data-single="multiplicity"></div>
+  <p><small>Tener varias expresiones profesionales no necesariamente significa estar disperso. A veces significa que todavía estás buscando la forma en que puedan convivir.</small></p>
+  <div class="error" id="err4">Por favor selecciona una respuesta para continuar.</div>
+  <div class="nav"><div class="btn-act back" data-btn="prev">Atrás</div><div class="btn-act" data-btn="next">Continuar</div></div>
+</section>
+
+<section class="screen" id="s5">
+  <h2>Cuando piensas en el dinero dentro de tu vida profesional, ¿qué aparece primero? *</h2>
+  <div class="grid" data-single="money"></div>
+  <div class="error" id="err5">Por favor selecciona la opción que mejor represente tu situación con el dinero.</div>
+  <div class="nav"><div class="btn-act back" data-btn="prev">Atrás</div><div class="btn-act" data-btn="next">Continuar</div></div>
+</section>
+
+<section class="screen" id="s6">
+  <h2>¿Qué lugar están ocupando actualmente la tecnología y la IA en tu actividad? *</h2>
+  <div class="grid" data-single="technology"></div>
+  <div class="error" id="err6">Por favor selecciona una respuesta sobre la tecnología.</div>
+  <div class="nav"><div class="btn-act back" data-btn="prev">Atrás</div><div class="btn-act" data-btn="next">Continuar</div></div>
+</section>
+
+<section class="screen" id="s7">
+  <h2>¿Qué quieres que tu vida profesional haga posible en tu vida? *</h2>
+  <textarea id="life" placeholder="No pienses en lo que debería responderse. Escribe lo que realmente quieres."></textarea>
+  <div class="error" id="err7">Por favor completa este campo para continuar.</div>
+  <div class="nav"><div class="btn-act back" data-btn="prev">Atrás</div><div class="btn-act" data-btn="next">Continuar</div></div>
+</section>
+
+<section class="screen" id="s8">
+  <h2>Si tuvieras que poner en una frase qué estás intentando construir en este momento, ¿qué dirías? *</h2>
+  <textarea id="building" placeholder="No tiene que estar perfectamente formulado."></textarea>
+  <div class="error" id="err8">Por favor escribe tu frase para finalizar y generar tu mapa.</div>
+  <div class="nav"><div class="btn-act back" data-btn="prev">Atrás</div><div class="btn-act" data-btn="finish">Ver mi mapa</div></div>
+</section>
+
+<section class="screen" id="res"></section>
+</main>
+
+<script>
+(function() {
+  const scriptURL="https://script.google.com/macros/s/AKfycbzdy0IW89dle5hD0F-p7y2bJDxPolgL9jkHd5-Teq80tb-N_SPcTCfbvkos00YKqLMJ/exec";
+  const LIST_ID="60";
+
+  const territories=[
+    "Dirección","Oferta","Dinero","Comunicación","Sistema","Tiempo y ritmo","Multiplicidad"
+  ];
+
+  const options={
+    moment:[
+      "Estoy construyendo una actividad profesional propia.",
+      "Ya tengo una actividad funcionando y quiero darle una nueva dirección.",
+      "Tengo varias actividades o proyectos y quiero integrarlos.",
+      "Estoy comenzando algo nuevo.",
+      "Estoy pensando en cambiar la manera en que trabajo o genero ingresos.",
+      "Siento que algo necesita cambiar, aunque todavía no sé exactamente qué."
+    ],
+    movement:territories,
+    multiplicity:[
+      "Una actividad principal.",
+      "Dos actividades que conviven.",
+      "Varias actividades o proyectos.",
+      "Muchas cosas abiertas al mismo tiempo.",
+      "No lo tengo claro."
+    ],
+    money:[
+      "Necesito generar más ingresos.",
+      "Necesito mayor estabilidad.",
+      "Tengo ingresos, pero no corresponden con todo lo que hago.",
+      "Estoy buscando nuevas fuentes de ingresos.",
+      "El dinero está condicionando demasiadas decisiones.",
+      "Quiero encontrar una relación más clara con esta dimensión.",
+      "Hoy el dinero no es mi principal preocupación."
+    ],
+    technology:[
+      "Me ayudan a hacer mejor lo que hago.",
+      "Me abren demasiadas posibilidades y me cuesta elegir.",
+      "Siento que debería utilizarlas más.",
+      "Estoy incorporándolas, pero quiero conservar mi propio criterio.",
+      "Tengo demasiadas herramientas y poco orden.",
+      "Prefiero utilizarlas solamente cuando realmente aportan.",
+      "Todavía no sé qué lugar deberían ocupar."
+    ]
+  };
+
+  const scoreMap={
+    moment:[
+      {d:1,o:2},{d:3},{m:3,d:1},{d:2},{d:2,t:1},{d:2,t:1}
+    ],
+    movement:[
+      {d:3},{o:3},{$:3},{c:3},{s:3},{t:3},{m:3}
+    ],
+    multiplicity:[
+      {d:1},{m:2,o:1},{m:3,d:1},{m:3,t:2},{d:1}
+    ],
+    money:[
+      {$:3,d:1},{$:3,t:1},{$:3,o:2},{$:2,o:1},{$:3,d:1},{$:2},{}
+    ],
+    technology:[
+      {s:2},{s:3,d:1},{s:2},{s:3},{s:3,t:1},{s:2},{s:2,d:1}
+    ]
+  };
+
+  const aliases={d:"Dirección",o:"Oferta",$:"Dinero",c:"Comunicación",s:"Sistema",t:"Tiempo y ritmo",m:"Multiplicidad"};
+
+  const resultText={
+    "Dirección":{
+      intro:"En tus respuestas aparece un movimiento alrededor de la dirección. Hay posibilidades, ideas o caminos abiertos, pero todavía no parece estar completamente claro cuál merece ocupar un lugar central.",
+      body:"A veces intentamos resolver esta situación buscando una nueva estrategia, una nueva herramienta o una nueva formación. Pero quizá la pregunta anterior sea otra: qué quieres construir realmente alrededor de tu vida.",
+      q:"Si durante un año no tuvieras que demostrar nada a nadie, ¿qué elegirías construir?",
+      move:"Escribe tres cosas que quieres que formen parte de tu vida profesional y tres que ya no quieres que la gobiernen."
+    },
+    "Oferta":{
+      intro:"En tus respuestas aparece un movimiento alrededor de aquello que sabes hacer y la manera en que lo estás poniendo a disposición de otros.",
+      body:"Puede que no te falten capacidades. Puede que el desafío esté en darles una forma que otras personas puedan comprender y elegir. La pregunta no es solamente qué puedes ofrecer. También es qué parte de ti quieres poner realmente en circulación.",
+      q:"¿Qué haces especialmente bien que todavía no has encontrado cómo expresar con claridad?",
+      move:"Haz una lista de lo que sabes hacer y, junto a cada elemento, escribe qué forma concreta podría tener para otra persona."
+    },
+    "Dinero":{
+      intro:"El dinero aparece como una dimensión importante de tu momento actual. Puede estar relacionado con estabilidad, ingresos, nuevas fuentes o con la necesidad de que aquello que estás construyendo pueda sostenerse.",
+      body:"El dinero forma parte de cualquier vida profesional. La cuestión es qué lugar ocupa dentro de la arquitectura completa de tu vida.",
+      q:"¿Cuánto dinero necesitas realmente para sostener la vida que quieres construir?",
+      move:"Anota tus necesidades económicas reales y sepáralas de aquello que hoy estás persiguiendo por inercia."
+    },
+    "Comunicación":{
+      intro:"Lo que haces puede estar más claro para ti que para las personas que podrían necesitarlo.",
+      body:"Cuando existe una distancia entre lo que hacemos y la manera en que lo contamos, terminamos intentando compensarla produciendo más contenido, cambiando de plataforma o buscando nuevas fórmulas. Tal vez el movimiento esté en encontrar las palabras que realmente corresponden a lo que haces.",
+      q:"Si tuvieras que explicar lo que haces sin utilizar ninguna palabra de marketing, ¿cómo lo contarías?",
+      move:"Escribe en tres frases qué haces, para quién puede ser valioso y qué cambia cuando alguien trabaja contigo."
+    },
+    "Sistema":{
+      intro:"La tecnología aparece con fuerza en tu momento actual. Herramientas, automatizaciones e inteligencia artificial pueden ampliar nuestras posibilidades.",
+      body:"Pero también pueden convertir la actividad profesional en una sucesión interminable de decisiones. Más herramientas no necesariamente producen más claridad. La herramienta tiene sentido cuando está al servicio de una decisión.",
+      q:"¿Qué problema real quieres resolver antes de elegir otra herramienta?",
+      move:"Haz una lista de tus herramientas actuales y escribe al lado de cada una qué problema concreto resuelve. Si no encuentras uno, déjala en observación."
+    },
+    "Tiempo y ritmo":{
+      intro:"En tus respuestas aparece una pregunta relacionada con el lugar que ocupa tu actividad profesional dentro de tu vida.",
+      body:"Construir algo propio puede ampliar nuestra autonomía y, al mismo tiempo, ocupar cada vez más espacio. El asunto no es solamente organizar mejor el tiempo. Es preguntarnos qué ritmo de vida queremos que nuestra actividad profesional haga posible.",
+      q:"¿Cómo sería una semana profesional que pudieras sostener durante años?",
+      move:"Describe una semana ideal pero posible, incluyendo horas de actividad, descanso, relaciones, creación y espacio personal."
+    },
+    "Multiplicidad":{
+      intro:"En tus respuestas aparecen distintas capacidades, intereses, actividades o proyectos buscando un lugar dentro de tu vida profesional.",
+      body:"Tal vez hayas aprendido que para construir algo sólido necesitas elegir una sola cosa y convertirte en especialista en ella. Pero una vida puede tener muchas expresiones profesionales. La pregunta puede ser qué arquitectura permitiría que esas expresiones convivan.",
+      q:"¿Qué parte de tu recorrido has intentado reducir para que pueda caber dentro de una sola profesión?",
+      move:"Haz una lista de tus capacidades, intereses y expresiones profesionales. No decidas todavía cuál debes abandonar."
+    }
+  };
+
+  let step = 0, data = {}; const N = 8;
+
+  function renderGridButtons() {
+    document.querySelectorAll("#mapa-profesional-app .grid").forEach(g => {
+      const key = g.dataset.single;
+      (options[key] || []).forEach((v, i) => {
+        const b = document.createElement("div");
+        b.className = "choice"; b.textContent = v; b.dataset.v = v; b.dataset.i = i;
+        g.appendChild(b);
+      });
+    });
+  }
+
+  function hideError() {
+    let e = document.getElementById('err' + step);
+    if (e) e.style.display = 'none';
+  }
+
+  function save() {
+    const s = document.getElementById("s" + step);
+    if (!s) return;
+    s.querySelectorAll("[data-single]").forEach(g => {
+      const x = g.querySelector(".sel");
+      data[g.dataset.single] = x ? {value: x.dataset.v, index: Number(x.dataset.i)} : null;
+    });
+    ["capabilities","life","building"].forEach(id => {
+      const e = document.getElementById(id);
+      if (e) data[id] = e.value.trim();
+    });
+  }
+
+  function validateStep(s) {
+    if (s === 1) return !!data.moment;
+    if (s === 2) return !!data.movement;
+    if (s === 3) return !!(data.capabilities && data.capabilities.trim());
+    if (s === 4) return !!data.multiplicity;
+    if (s === 5) return !!data.money;
+    if (s === 6) return !!data.technology;
+    if (s === 7) return !!(data.life && data.life.trim());
+    if (s === 8) return !!(data.building && data.building.trim());
+    return true;
+  }
+
+  function render() {
+    document.querySelectorAll('#mapa-profesional-app .screen').forEach(x => x.classList.remove('on'));
+    document.getElementById('s' + step).classList.add('on');
+    document.getElementById('pl').textContent = 'Paso ' + step + ' de ' + N;
+    document.getElementById('pb').style.width = ((step - 1) / N * 100) + '%';
+    window.scrollTo(0, 0);
+  }
+
+  document.addEventListener('click', function(e) {
+    let btnChoice = e.target.closest('#mapa-profesional-app .choice');
+    if (btnChoice) {
+      hideError();
+      let parentGrid = btnChoice.closest('.grid');
+      parentGrid.querySelectorAll('.choice').forEach(x => x.classList.remove('sel'));
+      btnChoice.classList.add('sel');
+      return;
+    }
+
+    let actionBtn = e.target.closest('#mapa-profesional-app [data-btn]');
+    if (!actionBtn) return;
+
+    let act = actionBtn.dataset.btn;
+
+    if (act === 'start') {
+      const n = document.getElementById("name").value.trim();
+      const emailVal = document.getElementById("email").value.trim();
+      if (!n || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+        document.getElementById("err0").style.display = "block"; return;
+      }
+      document.getElementById("err0").style.display = "none";
+      data.name = n; data.email = emailVal;
+      document.getElementById("prog").style.display = "block";
+      step = 1; render();
+    }
+
+    if (act === 'next') {
+      save();
+      if (!validateStep(step)) {
+        let err = document.getElementById('err' + step);
+        if (err) err.style.display = 'block';
+        return;
+      }
+      hideError();
+      if (step < N) { step++; render(); }
+      else showMap();
+    }
+
+    if (act === 'prev') {
+      save();
+      hideError();
+      if (step > 1) { step--; render(); }
+    }
+
+    if (act === 'finish') {
+      save();
+      if (!validateStep(step)) {
+        let err = document.getElementById('err' + step);
+        if (err) err.style.display = 'block';
+        return;
+      }
+      showMap();
+    }
+  });
+
+  document.addEventListener('input', function(e) {
+    if (e.target.matches('#mapa-profesional-app textarea, #mapa-profesional-app input')) hideError();
+  });
+
+  function calculate() {
+    const scores = {};
+    territories.forEach(t => scores[t] = 0);
+
+    function add(obj) {
+      Object.keys(obj || {}).forEach(k => {
+        const t = aliases[k]; if (t) scores[t] += obj[k];
+      });
+    }
+
+    if (data.moment) add(scoreMap.moment[data.moment.index]);
+    if (data.movement) add(scoreMap.movement[data.movement.index]);
+    if (data.multiplicity) add(scoreMap.multiplicity[data.multiplicity.index]);
+    if (data.money) add(scoreMap.money[data.money.index]);
+    if (data.technology) add(scoreMap.technology[data.technology.index]);
+
+    const direct = data.movement ? territories[data.movement.index] : null;
+
+    let sorted = territories.map(t => ({name: t, score: scores[t]}))
+      .sort((a,b) => b.score - a.score);
+
+    if (direct) {
+      const ds = scores[direct];
+      const idx = sorted.findIndex(x => x.name === direct);
+      if (idx > 0 && ds >= sorted[0].score - 1) {
+        sorted.splice(idx, 1); sorted.unshift({name: direct, score: ds});
+      }
+    }
+
+    return {scores, sorted, primary: sorted[0].name, secondary: sorted.slice(1,3).filter(x => x.score > 0)};
+  }
+
+  function showMap() {
+    const r = calculate();
+    const rt = resultText[r.primary];
+    const max = Math.max(1, r.sorted[0].score);
+    const rows = r.sorted.slice(0,3).map(x => {
+      const pct = Math.max(8, Math.round((x.score / max) * 100));
+      return '<div class="maprow"><span style="min-width:125px">' + escapeHtml(x.name) + '</span><div class="bar"><i style="width:' + pct + '%"></i></div></div>';
+    }).join("");
+
+    const secondary = r.secondary.length
+      ? '<p>También aparecen movimientos en <strong>' + r.secondary.map(x => escapeHtml(x.name)).join(" · ") + '</strong>.</p>'
+      : "";
+
+    const caps = data.capabilities ? '<p><strong>Una capacidad que señalaste:</strong> ' + escapeHtml(data.capabilities) + '</p>' : "";
+    const life = data.life ? '<p><strong>Lo que quieres hacer posible:</strong> ' + escapeHtml(data.life) + '</p>' : "";
+
+    document.getElementById("res").innerHTML =
+      '<h2>Tu Mapa de tu Vida Profesional</h2>' +
+      '<div class="result">' +
+        '<p class="lead">Tu movimiento principal aparece en</p>' +
+        '<h3>' + escapeHtml(r.primary) + '</h3>' +
+        '<p>' + rt.intro + '</p>' +
+        '<p>' + rt.body + '</p>' +
+        secondary + caps + life +
+        '<div class="note"><strong>Una pregunta para continuar</strong><p class="result-question">' + escapeHtml(rt.q) + '</p></div>' +
+        '<div class="result-move"><strong>Un primer movimiento</strong><p>' + escapeHtml(rt.move) + '</p></div>' +
+      '</div>' +
+      '<div class="result">' +
+        '<h3>Una primera mirada</h3>' +
+        '<p>Este mapa no pretende decirte qué debes hacer. Recoge algunas señales de aquello que hoy parece estar tomando movimiento en tu vida profesional.</p>' +
+        '<p>Puedes volver a estas respuestas dentro de unos días y observar si algo cambia.</p>' +
+        '<p><strong>A veces una pregunta bien formulada abre más camino que diez respuestas.</strong></p>' +
+        '<div class="maprow" style="margin-top:24px">' + rows + '</div>' +
+      '</div>' +
+      '<div class="result cta">' +
+        '<h3>¿Quieres profundizar?</h3>' +
+        '<p>Si quieres detenerte a observar con mayor profundidad lo que estás construyendo y el lugar que ocupa dentro de tu vida, podemos conversar.</p>' +
+        '<div style="margin-top:24px;"><div class="btn-act" onclick="window.open(\'https://www.arturoayala.art/conversacion-de-orientacion-profesional\',\'_blank\',\'noopener\')">CONVERSAR CON ARTURO →</div></div>' +
+      '</div>';
+
+    document.querySelectorAll("#mapa-profesional-app .screen").forEach(x => x.classList.remove("on"));
+    document.getElementById("res").classList.add("on");
+    document.getElementById("prog").style.display = "none";
+    window.scrollTo(0, 0);
+    enviarMapaProfesional(r);
+  }
+
+  function enviarMapaProfesional(r) {
+    const payload = {
+      tipo: "mapa_vida_profesional",
+      nombre: data.name || "",
+      email: data.email || "",
+      momentoActual: data.moment?.value || "",
+      movimientoPrincipal: data.movement?.value || "",
+      capacidades: data.capabilities || "",
+      multiplicidad: data.multiplicity?.value || "",
+      dinero: data.money?.value || "",
+      tecnologia: data.technology?.value || "",
+      vida: data.life || "",
+      construyendo: data.building || "",
+      territorioResultado: r.primary,
+      secundarios: r.secondary.map(x => x.name).join(", "),
+      puntuaciones: r.scores,
+      listaId: LIST_ID
+    };
+
+    fetch(scriptURL, {
+      method: "POST",
+      headers: {"Content-Type": "text/plain;charset=utf-8"},
+      body: JSON.stringify(payload)
+    }).catch(() => {});
+  }
+
+  function escapeHtml(value) {
+    return String(value || "").replace(/[&<>"']/g, function(ch) {
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[ch];
+    });
+  }
+
+  renderGridButtons();
+})();
+</script>
+</body>
+</html>
