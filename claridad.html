@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa de Claridad Biológica y Vital | RenaSiendo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #12301C;
+      --primary-light: #1e4a2d;
+      --copper: #C77755;
+      --copper-hover: #b06342;
+      --bg-cream: #FAF8F5;
+      --card-bg: #FFFFFF;
+      --text-main: #2C2C2C;
+      --text-muted: #5E6D64;
+      --border: #E5E0D8;
+      --radius: 12px;
+      --transition: all 0.25s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-cream);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 24px 16px;
+    }
+
+    .form-container {
+      width: 100%;
+      max-width: 680px;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(18, 48, 28, 0.06);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      padding: 32px 28px;
+    }
+
+    .header {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .header h1 {
+      color: var(--primary);
+      font-size: 1.5rem;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .header p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      height: 6px;
+      background: #ECE8E1;
+      border-radius: 99px;
+      margin: 20px 0 28px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 20%;
+      background: var(--copper);
+      transition: width 0.3s ease;
+    }
+
+    .section-title {
+      color: var(--copper);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+      line-height: 1.45;
+    }
+
+    .step {
+      display: none;
+    }
+
+    .step.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      color: var(--primary);
+      font-size: 0.88rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    label span.req {
+      color: var(--copper);
+    }
+
+    .help-text {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      display: block;
+      line-height: 1.35;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      background-color: #FAFAFA;
+      transition: var(--transition);
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--copper);
+      background-color: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(199, 119, 85, 0.15);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+    }
+
+    button {
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+    }
+
+    .btn-prev {
+      background-color: #ECE8E1;
+      color: var(--text-muted);
+    }
+
+    .btn-prev:hover {
+      background-color: #DFDAD1;
+      color: var(--primary);
+    }
+
+    .btn-next {
+      background-color: var(--primary);
+      color: #FFFFFF;
+      margin-left: auto;
+    }
+
+    .btn-next:hover {
+      background-color: var(--primary-light);
+    }
+
+    .btn-submit {
+      background-color: var(--copper);
+      color: #FFFFFF;
+      margin-left: auto;
+    }
+
+    .btn-submit:hover {
+      background-color: var(--copper-hover);
+    }
+
+    .success-card {
+      display: none;
+      text-align: center;
+      padding: 30px 10px;
+    }
+
+    .success-card h2 {
+      color: var(--primary);
+      font-size: 1.4rem;
+      margin-bottom: 14px;
+    }
+
+    .success-card p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .btn-calendar {
+      display: inline-block;
+      background: var(--copper);
+      color: #FFFFFF !important;
+      text-decoration: none;
+      padding: 14px 26px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    .btn-calendar:hover {
+      background: var(--copper-hover);
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <div class="header">
+    <h1>Mapa de Claridad Biológica y Vital</h1>
+    <p>Para encontrar una salida soberana, primero debemos descifrar el guion de tu historia. Espacio estrictamente confidencial.</p>
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+  </div>
+
+  <form id="claridadForm">
+    <!-- FASE 1: IDENTIDAD -->
+    <div class="step active" id="step1">
+      <div class="section-title">I. Identidad Biológica</div>
+      <div class="section-desc">Tus datos básicos para ordenar tu expediente confidencial.</div>
+
+      <div class="form-group">
+        <label>Nombre Completo <span class="req">*</span></label>
+        <input type="text" name="nombre" required placeholder="Tu nombre y apellido">
+      </div>
+
+      <div class="form-group">
+        <label>Correo Electrónico <span class="req">*</span></label>
+        <input type="email" name="email" required placeholder="correo@ejemplo.com">
+      </div>
+
+      <div class="form-group">
+        <label>WhatsApp <span class="req">*</span></label>
+        <input type="tel" name="whatsapp" required placeholder="Ej: +57 300 123 4567">
+      </div>
+
+      <div class="form-group">
+        <label>Edad <span class="req">*</span></label>
+        <input type="number" name="edad" required placeholder="Años cumplidos">
+      </div>
+
+      <div class="form-group">
+        <label>Lateralidad Biológica <span class="req">*</span></label>
+        <select name="lateralidad" required>
+          <option value="" disabled selected>Selecciona una opción</option>
+          <option value="Diestro / Diestra">Diestro / Diestra</option>
+          <option value="Zurdo / Zurda">Zurdo / Zurda</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>¿Cómo me encontraste? <span class="req">*</span></label>
+        <select name="origen" required>
+          <option value="" disabled selected>Selecciona un medio</option>
+          <option value="YouTube">YouTube</option>
+          <option value="Instagram">Instagram</option>
+          <option value="Recomendación">Recomendación de un conocido</option>
+          <option value="Otro">Otro medio</option>
+        </select>
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="btn-next" onclick="nextStep(1)">Siguiente ›</button>
+      </div>
+    </div>
+
+    <!-- FASE 2: RAÍCES Y TRAYECTORIA -->
+    <div class="step" id="step2">
+      <div class="section-title">II. Raíces y Trayectoria</div>
+      <div class="section-desc">El cuerpo y el alma guardan memoria de cada etapa previa.</div>
+
+      <div class="form-group">
+        <label>¿Qué sabes de tu gestación y nacimiento? <span class="req">*</span></label>
+        <span class="help-text">¿Fuiste deseado/a, hubo estrés materno, cesárea, parto prematuro o complicaciones?</span>
+        <textarea name="gestacion" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Describe tu niñez hasta los 7 años <span class="req">*</span></label>
+        <span class="help-text">¿Cómo recuerdas tu entorno familiar, miedos recurrentes o la presencia de tus padres?</span>
+        <textarea name="ninez" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Vida Adulta: logros, quiebres o cambios importantes <span class="req">*</span></label>
+        <span class="help-text">Mudanzas, pérdidas de empleo, crisis fuertes o hitos decisivos.</span>
+        <textarea name="vida_adulta" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Situación actual de pareja y vínculos clave <span class="req">*</span></label>
+        <span class="help-text">¿Cómo te relacionas con tu entorno íntimo o personas de alta influencia?</span>
+        <textarea name="pareja_vinculos" required></textarea>
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="btn-prev" onclick="prevStep(2)">‹ Anterior</button>
+        <button type="button" class="btn-next" onclick="nextStep(2)">Siguiente ›</button>
+      </div>
+    </div>
+
+    <!-- FASE 3: EL DESAFÍO Y EL SÍNTOMA -->
+    <div class="step" id="step3">
+      <div class="section-title">III. El Desafío y el Síntoma</div>
+      <div class="section-desc">Donde el cuerpo o la vida están pidiendo atención.</div>
+
+      <div class="form-group">
+        <label>¿Cuál es tu síntoma físico o desafío existencial principal hoy? <span class="req">*</span></label>
+        <span class="help-text">Describe qué se manifiesta en tu cuerpo o en qué parte sientes vacío, angustia o estancamiento.</span>
+        <textarea name="sintoma" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>¿Desde cuándo está presente esta situación? <span class="req">*</span></label>
+        <span class="help-text">Mes o año aproximado en que se detonó o intensificó.</span>
+        <input type="text" name="inicio" required placeholder="Ej: Marzo 2022 / Hace 2 años">
+      </div>
+
+      <div class="form-group">
+        <label>¿Tomas medicación actualmente? <span class="req">*</span></label>
+        <select name="med_sn" required>
+          <option value="No" selected>No</option>
+          <option value="Sí">Sí</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Diagnóstico médico (si tienes):</label>
+        <input type="text" name="diag_referido" placeholder="Etiqueta clínica o diagnóstico previo">
+      </div>
+
+      <div class="form-group">
+        <label>Detalle de medicación o tratamientos actuales:</label>
+        <input type="text" name="med_detalle" placeholder="¿Qué tomas y para qué?">
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="btn-prev" onclick="prevStep(3)">‹ Anterior</button>
+        <button type="button" class="btn-next" onclick="nextStep(3)">Siguiente ›</button>
+      </div>
+    </div>
+
+    <!-- FASE 4: SENTIDO Y DIRECCIÓN -->
+    <div class="step" id="step4">
+      <div class="section-title">IV. Sentido y Dirección</div>
+      <div class="section-desc">Mapeando hacia dónde empuja tu dolor o estancamiento.</div>
+
+      <div class="form-group">
+        <label>Estado Interno Predominante <span class="req">*</span></label>
+        <select name="estado_predominante" required>
+          <option value="" disabled selected>Selecciona tu estado</option>
+          <option value="Estancamiento">Estancamiento</option>
+          <option value="Vacío Existencial">Vacío Existencial</option>
+          <option value="Confusión de Rumbo">Confusión de Rumbo</option>
+          <option value="Miedo / Ansiedad">Miedo / Ansiedad</option>
+          <option value="Fatiga Biológica">Fatiga Biológica</option>
+          <option value="Otro Estado">Otro Estado</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Área del Guion Repetitivo <span class="req">*</span></label>
+        <select name="area_repetitiva" required>
+          <option value="" disabled selected>Selecciona el área</option>
+          <option value="Trabajo / Profesión">Trabajo / Profesión</option>
+          <option value="Relaciones / Pareja">Relaciones / Pareja</option>
+          <option value="Dinero / Economía">Dinero / Economía</option>
+          <option value="Salud / Cuerpo">Salud / Cuerpo</option>
+          <option value="Varios Ámbitos">Varios Ámbitos</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>¿Qué llevas mucho tiempo queriendo hacer o ser y sientes que no tienes permiso interno? <span class="req">*</span></label>
+        <span class="help-text">Aquel proyecto, impulso o decisión vital postergada.</span>
+        <textarea name="permiso_interno" required></textarea>
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="btn-prev" onclick="prevStep(4)">‹ Anterior</button>
+        <button type="button" class="btn-next" onclick="nextStep(4)">Siguiente ›</button>
+      </div>
+    </div>
+
+    <!-- FASE 5: VISIÓN Y PERSPECTIVA -->
+    <div class="step" id="step5">
+      <div class="section-title">V. Visión y Perspectiva</div>
+      <div class="section-desc">Integración hacia el encuentro.</div>
+
+      <div class="form-group">
+        <label>Calidad de Vínculos Actuales <span class="req">*</span></label>
+        <select name="vinculos" required>
+          <option value="Nutritivos / Satisfecho">Nutritivos / Satisfecho</option>
+          <option value="Conflictivos / Limitantes">Conflictivos / Limitantes</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Tu Relación con el Dinero <span class="req">*</span></label>
+        <select name="dinero" required>
+          <option value="Fluye con Libertad">Fluye con Libertad</option>
+          <option value="Sensación de Carga / Escasez">Sensación de Carga / Escasez</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>¿Cuál sería tu proyecto de vida ideal si supieras que no puedes fallar? <span class="req">*</span></label>
+        <textarea name="proyecto" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>¿Qué claridad absoluta vienes a buscar en este encuentro? <span class="req">*</span></label>
+        <textarea name="meta" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Relato libre (Opcional):</label>
+        <span class="help-text">Cualquier evento, sueño recurrente o intuición adicional.</span>
+        <textarea name="relato"></textarea>
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="btn-prev" onclick="prevStep(5)">‹ Anterior</button>
+        <button type="submit" class="btn-submit" id="btnSubmit">Enviar mi Relato</button>
+      </div>
+    </div>
+  </form>
+
+  <!-- MENSAJE DE ÉXITO -->
+  <div class="success-card" id="successCard">
+    <h2>Tu relato ha sido integrado con éxito</h2>
+    <p>He recibido tu estructura biográfica y vital para construir el mapa inicial de tu sesión de forma estrictamente confidencial.<br><br><strong>ÚLTIMO PASO REQUERIDO:</strong> Confirma tu agendamiento directo en el calendario para reservar tu hora.</p>
+    <a href="https://calendar.app.google/HGafejmBeWcXhVP78" target="_blank" class="btn-calendar">Confirmar mi Sesión en el Calendario ›</a>
+  </div>
+</div>
+
+<script>
+  // ATENCIÓN: Pega aquí la URL de implementación de tu Google Apps Script (que termina en /exec)
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzdy0IW89dle5hD0F-p7y2bJDxPolgL9jkHd5-Teq80tb-N_SPcTCfbvkos00YKqLMJ/exec";
+
+  function updateProgress(stepNumber) {
+    const totalSteps = 5;
+    const percentage = (stepNumber / totalSteps) * 100;
+    document.getElementById('progressBar').style.width = percentage + '%';
+  }
+
+  function validateStep(stepId) {
+    const currentStepEl = document.getElementById(stepId);
+    const inputs = currentStepEl.querySelectorAll('input[required], select[required], textarea[required]');
+    for (let input of inputs) {
+      if (!input.value.trim()) {
+        input.focus();
+        alert('Por favor completa este campo antes de continuar.');
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function nextStep(current) {
+    if (!validateStep('step' + current)) return;
+    document.getElementById('step' + current).classList.remove('active');
+    document.getElementById('step' + (current + 1)).classList.add('active');
+    updateProgress(current + 1);
+  }
+
+  function prevStep(current) {
+    document.getElementById('step' + current).classList.remove('active');
+    document.getElementById('step' + (current - 1)).classList.add('active');
+    updateProgress(current - 1);
+  }
+
+  document.getElementById('claridadForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (!validateStep('step5')) return;
+
+    const btnSubmit = document.getElementById('btnSubmit');
+    btnSubmit.disabled = true;
+    btnSubmit.innerText = 'Guardando expediente confidencial...';
+
+    const formData = new FormData(this);
+    const payload = { tipo: "mapa_claridad" };
+    formData.forEach((value, key) => { payload[key] = value; });
+
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    })
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('claridadForm').style.display = 'none';
+      document.getElementById('progressBar').parentElement.style.display = 'none';
+      document.getElementById('successCard').style.display = 'block';
+    })
+    .catch(err => {
+      // Incluso en caso de bloqueo de CORS en navegadores estrictos, la petición se envía
+      document.getElementById('claridadForm').style.display = 'none';
+      document.getElementById('progressBar').parentElement.style.display = 'none';
+      document.getElementById('successCard').style.display = 'block';
+    });
+  });
+</script>
+
+</body>
+</html>
